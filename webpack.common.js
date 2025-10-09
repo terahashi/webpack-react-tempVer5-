@@ -3,8 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = ({ outputFile, assetFile }) => ({
-  entry: './src/index.jsx', // React用に変更
-  // entry: { app: 'js/app.js', sub: 'js/sub.js' },
+  entry: './src/main.jsx', // React用に変更
   output: {
     path: path.resolve(__dirname, 'dist'), //「dist」を出力先フォルダにする
     filename: `${outputFile}.js`,
@@ -83,27 +82,17 @@ module.exports = ({ outputFile, assetFile }) => ({
     }),
   ],
 
+  //⬇︎react用に追加
   optimization: {
     splitChunks: {
-      chunks: 'all', //「all」は同期・非同期の両方に分割を適用。「async」は非同期のみ。「initial」は同期のみ。
-      minSize: 0,
+      chunks: 'all',
       cacheGroups: {
-        // サードパーティ用（例:jQueyなど）
+        // node_modules 内を vendors.js に分離
         vendors: {
-          name: 'vendors', //vendorsという名前で出力 index.htmlに<script defer src="vendors.js">と読み込まれる
-          test: /[\\/]node_modules[\\/]/, //node_modulesフォルダ内のモジュールを対象。「jQueryなどがvendorsに入る」
-          priority: -10, //優先度。数値が大きいほど優先される
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
           chunks: 'all',
         },
-
-        // 共通モジュール用(common.jsとして出力される。自作コードをまとめて1つのファイルに出力する仕組み)
-        common: {
-          minChunks: 2, // あるファイルが(例えば(utils/index.js)が2つ以上使われたら発動し「まとめてcommon.jsのファイルに出力する」
-          name: 'common', // 出力ファイル名はcommon.js
-          priority: -20,
-          chunks: 'all',
-        },
-        default: false, //⬅︎デフォルトのキャッシュグループが無効になる
       },
     },
   },
