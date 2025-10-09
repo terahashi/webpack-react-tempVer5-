@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src", // プロジェクトのルートを「srcフォルダ」を基準にする
+    "paths": {
+      "@scss": ["scss"], //「@scss」を「src/scssフォルダ」として認識させる
+      "scss": ["scss"], //「scss」を「src/scssフォルダ」として認識させる
+      "js": ["js"], //「js」を「src/jsフォルダ」として認識させる
+      "images": ["images"] //「images」を「src/imagesフォルダ」として認識させる
+    }
+  },
+  "exclude": ["node_modules", "dist", "public"] //除外するフォルダ
+}

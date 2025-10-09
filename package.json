@@ -1,0 +1,49 @@
+{
+  "name": "webpack_ver5",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npm run webpack:dev && npm run webpack:server",
+    "webpack:server": "webpack serve --config webpack.dev.js",
+    "webpack:dev": "npx webpack --config ./webpack.dev.js",
+    "build": "npx webpack --config webpack.prod.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.4",
+    "@babel/eslint-parser": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "autoprefixer": "^10.4.21",
+    "babel-loader": "^10.0.0",
+    "core-js": "^3.45.1",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.2",
+    "eslint": "^9.35.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-webpack-plugin": "^5.0.2",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.4",
+    "mini-css-extract-plugin": "^2.9.4",
+    "postcss": "^8.5.6",
+    "postcss-loader": "^8.2.0",
+    "postcss-preset-env": "^10.3.1",
+    "regenerator-runtime": "^0.14.1",
+    "sass": "^1.92.1",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "terser-webpack-plugin": "^5.3.14",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2",
+    "webpack-merge": "^6.0.1"
+  },
+  "browserslist": [
+    ">0.25%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}

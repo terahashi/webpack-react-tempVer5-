@@ -1,0 +1,24 @@
+h1 {
+  font-size: 2em;
+  transition: all 0.3s;
+  color: green;
+
+  &:hover {
+    transform: translateX(50px);
+    color: red;
+  }
+}
+
+.imageClass {
+  width: 250px;
+  height: auto;
+  display: flex;
+}
+
+.bg {
+  background-image: url('~@images/webpack-logo.svg');
+  // background-image: url('~images/webpack-logo.svg'); //resolveで設定した「modulesのsrc」が参照される
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+}
