@@ -3,7 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = ({ outputFile, assetFile }) => ({
-  entry: { app: 'js/app.js', sub: 'js/sub.js' },
+  entry: './src/index.jsx', // React用に変更
+  // entry: { app: 'js/app.js', sub: 'js/sub.js' },
   output: {
     path: path.resolve(__dirname, 'dist'), //「dist」を出力先フォルダにする
     filename: `${outputFile}.js`,
@@ -13,7 +14,7 @@ module.exports = ({ outputFile, assetFile }) => ({
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.(m?js|jsx?)$/, //⬅︎.js .mjs .jsxにマッチする正規表現
         exclude: /node_modules/,
         use: 'babel-loader',
       },
