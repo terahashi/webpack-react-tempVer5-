@@ -1,0 +1,42 @@
+
+①「vendor.js」の中身について。
+■vendor.jsについて。
+・webpackが共通して使われる外部ライブラリ（node_modules）をまとめて1つにしたファイルです。
+
+■Reactアプリで「splitChunks」が有効なとき出力されるもの。
+dist/
+├── main.[contenthash].js     ← 自作コード（src配下）
+├── vendor.[contenthash].js   ← ‼️外部ライブラリ群（ReactやReactDOMなど）
+└── index.html
+
+■vendor.js に入る主なモジュール
+react
+react-dom
+scheduler（reactの内部依存）
+object-assign（react内部で使用）
+webpackのruntime関連
+
+
+
+②React用 Webpack の「splitChunks」について
+■複雑なcommon.jsなどは不要（SPAではあまり恩恵がない）。
+・出力されるファイルは「vendor.js」だけで十分。
+・自作したReactコードは「main.js」ファイルにバンドル出力される。
+
+
+
+
+
+③ 本番ビルドした「dist」をブラウザで表示する方法
+【1】最も簡単：VSCode の「Live Server」拡張機能を使う
+1:VSCodeの拡張機能で「Live Server」をインストール
+2:dist/index.html を右クリック → 「Open with Live Server」
+3:自動でブラウザが開く。
+
+【2】Node.jsでローカルサーバを立てる ////これを使用する。
+1:serveパッケージでローカルサーバを立てる。(実は「serveパッケージとwebpack-dev-server」は別物です。)
+ yarn add --dev serve
+2:実行する。(package.jsonに記載済み)
+ yarn serve
+
+

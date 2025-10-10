@@ -85,13 +85,14 @@ module.exports = ({ outputFile, assetFile }) => ({
   //⬇︎react用に追加
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      chunks: 'all', //同期・非同期どちらも対象
       cacheGroups: {
         // node_modules 内を vendors.js に分離
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
+          name: 'vendors', //vendors.jsを作成
           chunks: 'all',
+          priority: -10, //優先度
         },
       },
     },
