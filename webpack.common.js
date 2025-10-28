@@ -76,9 +76,10 @@ module.exports = ({ outputFile, assetFile }) => ({
     ),
     new ESLintPlugin({
       extensions: ['js'],
+      overrideConfigFile: './eslint.config.js', // ここでフラット形式の設定を指定
       emitWarning: true,
-      failOnError: false, //trueにするとエラーでビルド停止
-      fix: true, //fixの自動修正を有効化
+      failOnError: false,
+      fix: true,
     }),
   ],
 
