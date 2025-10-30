@@ -1,5 +1,5 @@
 node_modules
-/dist
+dist/
 
 # images フォルダを Git 管理から除外
 src/images/
