@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = ({ outputFile, assetFile }) => ({
   entry: './src/main.jsx', // React用に変更
@@ -80,6 +81,11 @@ module.exports = ({ outputFile, assetFile }) => ({
       emitWarning: true,
       failOnError: false,
       fix: true,
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/images', to: 'images' }, // ← これを追加！
+      ],
     }),
   ],
 
