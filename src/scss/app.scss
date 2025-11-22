@@ -1,24 +1,53 @@
-body {
-  background: #f8f9fa;
-  font-family: system-ui, sans-serif;
-  color: #333;
+html {
+  font-size: 62.5%; /* 10px = 1rem */
+  overflow-x: hidden;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  letter-spacing: 0.05em;
+  box-sizing: border-box;
+}
+
+span {
+  font-size: 1.6rem;
+  display: block;
 }
 
 h1 {
-  font-size: 2em;
-  transition: all 0.3s;
-  color: green;
-
-  &:hover {
-    transform: translateX(50px);
-    color: red;
-  }
+  font-size: 2.4rem;
 }
 
-.imageClass {
-  width: 250px;
-  height: auto;
-  display: flex;
+h2 {
+  font-size: 2.8rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+section {
+  margin-bottom: 15%;
+}
+
+section.main {
+  margin-bottom: 5%;
+}
+
+.inner {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.parts {
+  width: 80%;
+  margin: 0% auto;
+  @media screen and (max-width: 600px) {
+    font-size: 1.8rem;
+    width: 100%;
+  }
 }
 
 .bg {
